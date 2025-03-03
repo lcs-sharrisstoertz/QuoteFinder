@@ -11,7 +11,7 @@ import SwiftUI
 struct QuoteFinderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            QuoteView()
         }
     }
 }
