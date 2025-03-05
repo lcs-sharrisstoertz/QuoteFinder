@@ -35,7 +35,7 @@ struct QuoteView: View {
             if let currentQuote = viewModel.currentQuote {
                 
                 Group {
-                    Text(currentQuote.setup ?? "")
+                    Text(currentQuote.quoteText ?? "")
                         .padding(.bottom, 100)
                     
                     Text(currentQuote.quoteAuthor ?? "")
@@ -58,7 +58,7 @@ struct QuoteView: View {
                  
                     // Hide author and button
                     withAnimation {
-                        viewModel.currentJoke = nil
+                        viewModel.currentQuote = nil
                         quoteAuthorOpacity = 0.0
                         buttonOpacity = 0.0
                     }
