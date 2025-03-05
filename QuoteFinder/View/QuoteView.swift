@@ -31,14 +31,38 @@ struct QuoteView: View {
     var body: some View {
         VStack {
             
+            Rectangle()
+                .fill(Color.cyan)
+                .stroke(.blue, lineWidth: 10)
+                .frame(width: .infinity, height: 200)
+                .overlay(alignment: .center) {
+                    Text("Quote")
+                    .foregroundStyle(.gray)
+                    .font(.system(size: 50.0, weight: .bold, design: .default))
+                    .padding(EdgeInsets(top: 0, leading: 7, bottom: 0, trailing: 0))
+                    Text("Quote")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 50.0, weight: .bold, design: .default))
+                }
+            
+            Image(systemName: "books.vertical")
+                .foregroundStyle(.gray)
+                .font(.system(size: 40))
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                
+                    
+            Spacer()
+            
             // Show a quote if one exists
             if let currentQuote = viewModel.currentQuote {
                 
                 Group {
                     Text(currentQuote.quoteText ?? "")
-                        .padding(.bottom, 100)
+                        .padding(.init(top: 0, leading: 12, bottom: 100, trailing: 12))
                     
                     Text(currentQuote.quoteAuthor ?? "")
+                        .font(.title2)
+                        .bold()
                         .opacity(quoteAuthorOpacity)
                         .onReceive(quoteAuthorTimer) { _ in
                             
@@ -91,7 +115,24 @@ struct QuoteView: View {
                 
             }
             
+            Spacer()
+            
+            Rectangle()
+                .fill(Color.cyan)
+                .stroke(.blue, lineWidth: 10)
+                .frame(width: .infinity, height: 200)
+                .overlay(alignment: .center) {
+                    Text("Finder")
+                    .foregroundStyle(.gray)
+                    .font(.system(size: 50.0, weight: .bold, design: .default))
+                    .padding(EdgeInsets(top: 0, leading: 7, bottom: 0, trailing: 0))
+                    Text("Finder")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 50.0, weight: .bold, design: .default))
+                }
         }
+        .ignoresSafeArea()
+
     }
 }
  
